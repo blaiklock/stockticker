@@ -1,0 +1,8 @@
+{
+  "name": "nw-app",
+  "version": "0.0.0",
+  "main": "index.html",
+  "window": {
+      "toolbar": true
+  }
+}

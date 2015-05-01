@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand">Ticker Tape</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#settings"><i class="fa fa-cog"></i> Settings</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- Live Stock Ticker -->
+<div id="stockTicker">
+    <div class="inner">
+        <ul scroll-ticker="shouldScroll">
+            <li ng-repeat="quote in quotes">
+                <span class="symbol">{{ quote.symbol }}</span>
+                <span class="price">{{ quote.LastTradePriceOnly }}</span>
+                <span class="change" ng-class="{'up':(parseFloat({{ quote.Change }}) > 0), 'down': (parseFloat({{ quote.Change }}) < 0)}">{{ quote.Change | change }}</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div>
+    <p>Polling Yahoo Finance API every 1 minute. | Last Poll Time: {{ lastPollTime | date: 'mediumTime' }}</p>
+</div>
