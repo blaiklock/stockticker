@@ -23,8 +23,6 @@ app.controller('MainController', ['$scope', '$http', '$timeout', 'localStorageSe
     
     $scope.parseFloat = parseFloat;
     
-    $scope.shouldScroll = false;
-    
     $scope.symbols = symbolsInStore || ['AAPL', 'MSFT', 'XOM', 'JNJ'];
     
     $scope.$watch('symbols', function() {
@@ -59,33 +57,6 @@ app.controller('MainController', ['$scope', '$http', '$timeout', 'localStorageSe
     poller();
 }]);
 
-app.directive('scrollTicker', function () {
-    return function (scope, elem, attrs) {
-        var $scrollTickerUI = $(elem);
-        var flag = elem.attr('scroll-ticker');
-        //scroll();
-
-        function scroll() {
-            if (scope.$eval(flag)) {
-                // witdh on load is 0
-                var w = $scrollTickerUI.width();
-                console.log('width is ' + w);
-                $scrollTickerUI.css({
-                    marginLeft: w
-                });
-                $scrollTickerUI.animate({
-                    marginLeft: -w
-                }, 15000, 'linear', scroll);
-            } else
-                $scrollTickerUI.stop();
-        }
-
-        scope.$watch(flag, function (value) {
-            scroll();
-        });
-    }
-});
-
 app.filter('change', function() {
     return function(changeAmount) {
         if (changeAmount > 0) {
@@ -99,3 +70,12 @@ app.filter('change', function() {
         }
     } 
 });
+
+	$("#scrollingText").bind("mouseover", function () {
+	    $("#scrollingText").smoothDivScroll("stopAutoScrolling");
+	});
+
+	// Mouse out
+	$("#scrollingText").bind("mouseout", function () {
+	    $("#scrollingText").smoothDivScroll("startAutoScrolling");
+	});
