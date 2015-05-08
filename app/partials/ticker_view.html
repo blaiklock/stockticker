@@ -9,7 +9,7 @@
     </div>
 </nav>
 <!-- Live Stock Ticker -->
-<ul>
+<ul ticker id="webticker">
     <li ng-repeat="quote in quotes">
         <span class="symbol">{{ quote.symbol }}</span>
         <span class="price">{{ quote.LastTradePriceOnly }}</span>

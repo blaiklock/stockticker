@@ -1,4 +1,4 @@
-http://sravi-kiran.blogspot.com/2013/05/ImplementingSignalRStockTickerUsingAngularJSPart2.html
+//http://sravi-kiran.blogspot.com/2013/05/ImplementingSignalRStockTickerUsingAngularJSPart2.html
 
 var app = angular.module('tickerTape', ['ngRoute', 'LocalStorageModule']);
 
@@ -45,6 +45,7 @@ app.controller('MainController', ['$scope', '$http', '$timeout', 'localStorageSe
         }).success(function (data, status) {
             $scope.quotes = data.query.results.quote;
             console.log('Success status code: ' + status);
+            
         }).error(function (data, status) {
             // log error
             console.log('Error status code: ' + status);
@@ -52,9 +53,21 @@ app.controller('MainController', ['$scope', '$http', '$timeout', 'localStorageSe
         // 5 minutes 300000
         $timeout(poller, 60000);
         $scope.lastPollTime = new Date();
-        $scope.shouldScroll = true;
+        $scope.$broadcast('dataloaded');
     };
     poller();
+}]);
+
+app.directive('ticker', ['$timeout', function($timeout) {
+    return {
+        link: function($scope, element, attrs) {
+            $scope.$on('dataloaded', function() {
+                $timeout(function() {
+                    $("#webticker").webTicker();
+                }, 0, false);
+            })
+        }
+    };
 }]);
 
 app.filter('change', function() {
