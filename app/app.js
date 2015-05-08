@@ -70,12 +70,3 @@ app.filter('change', function() {
         }
     } 
 });
-
-	$("#scrollingText").bind("mouseover", function () {
-	    $("#scrollingText").smoothDivScroll("stopAutoScrolling");
-	});
-
-	// Mouse out
-	$("#scrollingText").bind("mouseout", function () {
-	    $("#scrollingText").smoothDivScroll("startAutoScrolling");
-	});
