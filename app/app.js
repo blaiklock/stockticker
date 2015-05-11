@@ -9,6 +9,9 @@ app.config(['$routeProvider', function ($routeProvider) {
     }).when('/settings', {
         controller: 'MainController',
         templateUrl: 'app/partials/settings_view.html'
+    }).when('/about', {
+        controller: 'MainController',
+        templateUrl: 'app/partials/about_view.html' 
     }).otherwise({
         redirectTo: '/ticker'
     });
