@@ -34,6 +34,10 @@ app.controller('MainController', ['$scope', '$http', '$timeout', 'localStorageSe
         localStorageService.set('symbols', $scope.symbols);
     }, true);
     
+    $scope.closeWindow = function() {
+        window.close();
+    };
+    
     function encodeSymbols() {
         var symbols = [];
         for (var i=0; i<$scope.symbols.length; i++) {

@@ -18,3 +18,9 @@ ul.newsticker li {
     color: #ff7272;
     text-shadow: 0 0 2pt #aa0000;
 }
+button {
+    -webkit-app-region: no-drag;
+}
+a {
+    -webkit-app-region: no-drag;
+}
