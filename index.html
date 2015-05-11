@@ -7,7 +7,22 @@
         <link rel="stylesheet" href="Web-Ticker/example/assets/webticker.css">
         <link rel="stylesheet" href="custom.css">
     </head>
-    <body ng-app="tickerTape" style="-webkit-app-region: drag">
+    <body ng-app="tickerTape">
+        <nav ng-controller="MainController" class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#ticker">Ticker Tape</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about"><i class="fa fa-info-circle"></i> About</a>
+                    </li>
+                    <li><a href="#settings"><i class="fa fa-cog"></i> Settings</a>
+                    </li>
+                    <li ng-click="closeWindow()"><a role="button"><i class="fa fa-times"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <!-- Views use controllers via routeProvider config -->
         <!-- Placeholder for views -->
         <div ng-view></div>

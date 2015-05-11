@@ -1,5 +1,8 @@
 //http://sravi-kiran.blogspot.com/2013/05/ImplementingSignalRStockTickerUsingAngularJSPart2.html
 
+var gui = require('nw.gui');
+var win = gui.Window.get();
+
 var app = angular.module('tickerTape', ['ngRoute', 'LocalStorageModule']);
 
 app.config(['$routeProvider', function ($routeProvider) {
@@ -35,7 +38,7 @@ app.controller('MainController', ['$scope', '$http', '$timeout', 'localStorageSe
     }, true);
     
     $scope.closeWindow = function() {
-        window.close();
+        win.close();
     };
     
     function encodeSymbols() {

@@ -1,6 +1,15 @@
 html {
     border-radius: 5px;
 }
+
+nav {
+    -webkit-app-region: drag;
+}
+
+nav a {
+    -webkit-app-region: no-drag;
+}
+
 .tickercontainer {
     background: #242424;
     width: 100%;
@@ -20,10 +29,4 @@ ul.newsticker li {
 .down {
     color: #ff7272;
     text-shadow: 0 0 2pt #aa0000;
-}
-button {
-    -webkit-app-region: no-drag;
-}
-a {
-    -webkit-app-region: no-drag;
 }
