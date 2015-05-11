@@ -8,6 +8,7 @@
       "width": 775,
       "height": 155,
       "min_width": 775,
-      "min_height": 155
+      "min_height": 155,
+      "transparent": true
   }
 }
