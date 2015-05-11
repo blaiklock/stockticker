@@ -25,6 +25,8 @@ app.controller('MainController', ['$scope', '$http', '$timeout', 'localStorageSe
     
     $scope.symbols = symbolsInStore || ['AAPL', 'MSFT', 'XOM', 'JNJ'];
     
+    var isMoving = false;
+    
     $scope.$watch('symbols', function() {
         localStorageService.set('symbols', $scope.symbols);
     }, true);
@@ -45,6 +47,10 @@ app.controller('MainController', ['$scope', '$http', '$timeout', 'localStorageSe
         }).success(function (data, status) {
             $scope.quotes = data.query.results.quote;
             console.log('Success status code: ' + status);
+            if (!isMoving) {
+                $scope.$broadcast('dataloaded');
+                isMoving = true;
+            }
             
         }).error(function (data, status) {
             // log error
@@ -53,7 +59,7 @@ app.controller('MainController', ['$scope', '$http', '$timeout', 'localStorageSe
         // 5 minutes 300000
         $timeout(poller, 60000);
         $scope.lastPollTime = new Date();
-        $scope.$broadcast('dataloaded');
+        
     };
     poller();
 }]);
@@ -63,12 +69,14 @@ app.directive('ticker', ['$timeout', function($timeout) {
         link: function($scope, element, attrs) {
             $scope.$on('dataloaded', function() {
                 $timeout(function() {
-                    $("#webticker").webTicker();
+                    $("#webticker").webTicker({speed: 75});
                 }, 0, false);
             })
         }
     };
 }]);
+
+
 
 app.filter('change', function() {
     return function(changeAmount) {
