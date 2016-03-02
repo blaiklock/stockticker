@@ -1,7 +1,7 @@
 //http://sravi-kiran.blogspot.com/2013/05/ImplementingSignalRStockTickerUsingAngularJSPart2.html
 
-var gui = require('nw.gui');
-var win = gui.Window.get();
+//var gui = require('nw.gui');
+//var win = gui.Window.get();
 
 var app = angular.module('tickerTape', ['ngRoute', 'LocalStorageModule']);
 
