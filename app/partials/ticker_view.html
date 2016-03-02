@@ -1,0 +1,17 @@
+<div class="container">
+    <script>
+        window.resizeTo(750, 155);
+        window.moveTo(400, 350);
+    </script>
+    <!-- Live Stock Ticker -->
+    <ul ticker id="webticker">
+        <li ng-repeat="quote in quotes track by quote.symbol">
+            <span class="symbol">{{ quote.symbol }}</span>
+            <span class="price">{{ quote.LastTradePriceOnly }}</span>
+            <span class="change" ng-class="{'up':(parseFloat({{ quote.Change }}) > 0), 'down': (parseFloat({{ quote.Change }}) < 0)}">{{ quote.Change | change }}</span>
+        </li>
+    </ul>
+    <div>
+        <p class="text-center"><small>Polling Yahoo Finance API every 1 minute. | Last Poll Time: {{ lastPollTime | date: 'mediumTime' }}</small></p>
+    </div>
+</div>

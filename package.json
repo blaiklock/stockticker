@@ -1,0 +1,14 @@
+{
+  "name": "nw-app",
+  "version": "0.0.0",
+  "main": "index.html",
+  "window": {
+      "frame": false,
+      "toolbar": false,
+      "width": 775,
+      "height": 155,
+      "min_width": 775,
+      "min_height": 155,
+      "transparent": true
+  }
+}

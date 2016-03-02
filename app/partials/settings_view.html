@@ -1,0 +1,13 @@
+<div class="container">
+    <script>
+        window.resizeTo(750, 240);
+    </script>
+    <h3>Settings</h3>
+    <form>
+        <div class="form-group">
+            <label for="symbolsInput">Enter ticker symbols separated by commas</label>
+            <input type="text" class="form-control" name="symbolsInput" id="symbolsInput" ng-model="symbols" ng-list>
+        </div>
+        <a href="#ticker" class="btn btn-primary" ng-click="save()">Save</a>
+    </form>
+</div>

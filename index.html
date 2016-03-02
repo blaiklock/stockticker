@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Styles -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="Web-Ticker/example/assets/webticker.css">
+        <link rel="stylesheet" href="custom.css">
+    </head>
+    <body ng-app="tickerTape">
+        <nav ng-controller="MainController" class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#ticker">Ticker Tape</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about"><i class="fa fa-info-circle"></i> About</a>
+                    </li>
+                    <li><a href="#settings"><i class="fa fa-cog"></i> Settings</a>
+                    </li>
+                    <!-- <li ng-click="closeWindow()"><a role="button"><i class="fa fa-times"></i></a> -->
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Views use controllers via routeProvider config -->
+        <!-- Placeholder for views -->
+        <div ng-view></div>
+
+        
+        <!-- Vendors -->
+        <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.js"></script>
+        <script src="app/js/angular-local-storage.min.js"></script>
+        <!-- Modules -->
+        <script src="Web-Ticker/jquery.webticker.js"></script>
+        <script src="app/app.js"></script>        
+        <!-- Controllers -->
+    </body>
+</html>
